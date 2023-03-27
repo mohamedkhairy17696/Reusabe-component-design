@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Container } from "./components/index";
+import { Home, Profile } from "./Pages/index";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import { Header, Footer } from "./sections/index";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <Router basename="/cybrog">  // basename used with hostinger domain
+    <Router>
+      <Header />
+      <Container>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </Container>
+      <Footer position="fixed" />
+    </Router>
   );
 }
 
